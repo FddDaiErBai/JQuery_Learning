@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function func1() {
+            /*
+            * innerText >>> text()
+            * innerHTML >>> html()
+            * value >>> val()
+            *
+            *  */
+
+            console.log($("#d1").text());
+            console.log($("#d1").html());
+            console.log($("#i1").val());
+        }
+
+        function func2() {
+            // $("#d1").text("<h1>牛气冲天</h1>");
+            $("#d1").html("<h1>牛气冲天</h1>");
+            $("#i1").val("你好");
+        }
+
+        function func3() {
+            $("#d1").empty();//清空子元素
+            $("#d1").val("");
+        }
+
+    </script>
+</head>
+<body>
+<label for='i1'></label><input type="text" value="这里是文字" id='i1'/>
+<div id='d1'>
+    a
+    <span>xxx</span>
+    b
+</div>
+<input type="button" value="获得标签内容" onclick="func1()"/>
+<input type="button" value="修改标签内容" onclick="func2()"/>
+<input type="button" value="删除标签中的内容" onclick="func3()"/>
+</body>
+</html>
