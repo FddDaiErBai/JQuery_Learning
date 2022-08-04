@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function func1() {
+            // $("#d1").show(2000,"swing",function(){
+            //     alert("动画执行结束了");
+            // });
+            $("#d1").fadeIn(2000);
+        }
+
+        function func2() {
+            $("#d1").fadeOut(3000);
+        }
+
+        function func3() {
+            $("#d1").fadeToggle(5000);
+        }
+
+        function func4() {
+            $("#d1").fadeTo(5000, 0.2);//0-1
+        }
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+<input type="button" value="fadeIn" onclick="func1()"/>
+<input type="button" value="fadeOut" onclick="func2()"/>
+<input type="button" value="fadeToggle" onclick="func3()"/>
+<input type="button" value="fadeToe" onclick="func4()"/>
+</body>
+</html>
