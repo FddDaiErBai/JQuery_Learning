@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ezh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            /*
+            * JQuery对象往往以$开始，以示和DOM对象区分
+            *  */
+
+            let $lis = $("li");
+            console.log($lis);
+
+            for (let i = 0; i < $lis.length; i++) {
+                console.log($lis.get(i));
+            }
+
+            /*
+            * JQuery提供了一个each方法帮助我们遍历元素
+            *  */
+
+            $lis.each(function (i, e) {
+                //e是一个DOM对象
+                console.log(i + ">" + $(e).text());
+            })
+
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li>人工智能</li>
+    <li>MCA</li>
+    <li>JAVA就业</li>
+    <li>Python</li>
+    <li>前端</li>
+</ul>
+</body>
+</html>
