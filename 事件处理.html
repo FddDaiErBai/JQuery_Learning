@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function func1() {
+            //给元素绑定事件
+            //原生JS
+            // let div1 = document.getElementById("d1");
+            // div1.onmouseover = function (){
+            //     alert("悬停")
+            // }
+
+            /*
+            * bind 方法绑定事件
+            * 在JQuery中，事件的名称=原始名称去掉on
+            * onclick click
+            * onmouseover mouseover
+            *  */
+            $("#d1").bind("mouseover", function () {
+                $("#d1").css("background-color", "yellow");
+            })
+
+            //事件名作为方法
+            $("#d1").mouseleave(function () {
+                $("#d1").css("background-color", "lightgreen");
+            })
+
+            //live on
+
+            //绑定事件一次
+            // $("#d1").one("mouseover", function () {
+            //     $("#d1").css("background-color", "yellow");
+            // })
+            //
+            // $("#d1").one("mouseleave", function () {
+            //     $("#d1").css("background-color", "lightgreen");
+            // })
+
+        }
+
+        function func2() {
+            // $("#d1").unbind();//接触绑定所有事件
+
+            $("#d1").unbind("mouseover")//接触绑定的指定事件
+        }
+
+        function func3() {
+            //相当于获得焦点事件
+            $("#i1").focus()
+        }
+
+        function func4() {
+            console.log("获得焦点")
+        }
+    </script>
+</head>
+<body>
+<div id='d1'>
+
+</div>
+<input type="button" value="添加事件" onclick="func1()"/>
+<input type="button" value="解除绑定" onclick="func2()"/>
+<br/>
+<label for='i1'></label><input type="text" id='i1' onfocus="func4()"/>
+<input type="button" value="触发事件" onclick="func3()"/>
+</body>
+</html>
