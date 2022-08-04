@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function func1() {
+            //创建元素
+            let span1 = $("<span>这里是测试文字</span>");
+            //设置样式
+            span1.css("color", "green");
+            span1.css("border", "1px solid blue");
+            span1.css("background-color", "lightgray");
+            //设置样式
+            span1.text("今天天气很好");
+
+            $("#d1").append(span1);
+
+
+        }
+
+        function func2() {
+            let h = $("<h3>测试文字</h3>").css("color", "red").css("border", "1px solid green");
+
+            h.appendTo($("#d1"));
+        }
+
+        function func3() {
+            let span1 = $('<span style="color: red; border: 1px solid orangered;">测试文字</span>');
+            $("#d1").before(span1);
+        }
+
+        function func4() {
+            let span1 = $('<span style="color: red; border: 1px solid orangered;">测试文字</span>');
+            span1.insertBefore($("#d1"));
+        }
+
+        function func5() {
+            let span1 = $('<span style="color: red; border: 1px solid orangered;">测试文字</span>');
+            span1.after($("#d1"));
+        }
+
+        function func6() {
+            let span1 = $('<span style="color: red; border: 1px solid orangered;">测试文字</span>');
+            span1.insertAfter($("#d1"));
+        }
+
+        function func7() {
+            $("#d1").empty();
+        }
+
+        function func8() {
+            $("#d1").remove();//移除当前元素本身
+        }
+    </script>
+</head>
+<body>
+<div id='d1'>
+
+</div>
+<input type="button" value="testAppend" onclick="func1()"/>
+<input type="button" value="testAppendTo" onclick="func2()"/>
+<input type="button" value="testbefore" onclick="func3()"/>
+<input type="button" value="testinsertBefore" onclick="func4()"/>
+<input type="button" value="testafter" onclick="func5()"/>
+<input type="button" value="testInsertAfter" onclick="func6()"/>
+<input type="button" value="empty" onclick="func7()"/>
+<input type="button" value="remove" onclick="func8()"/>
+</body>
+</html>
