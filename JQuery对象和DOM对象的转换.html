@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //原生JS 获取页面元素 原生的DOM对象
+            let div1 = document.getElementById("d1");
+            console.log(div1);
+
+            //JQuery 获取页面元素 JQuery对象
+            let div2 = $("#d1");
+
+            /*
+            * DOM对象和JQuery对象之间的方法和属性是不相通的
+            *  */
+
+            console.log(div1.innerText);
+            console.log(div2.text());
+
+            console.log(div1);
+            console.log(div2);
+
+
+            //DOM对象如何调用JQuery对象 DOM对象转换为JQuery对象
+            console.log($(div1).text());
+
+            //JQuery对象如何调用DOM对象 JQuery对象转换为DOM对象
+            console.log(div2.get(0).innerText);
+            console.log(div2[0].innerText);
+
+        })
+    </script>
+</head>
+<body>
+<div id="d1">测试文字</div>
+</body>
+</html>
