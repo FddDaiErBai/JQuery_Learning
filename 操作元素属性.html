@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .a {
+            background-color: aqua;
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        /*
+         *attr()
+         *
+         * */
+        function func1() {
+            console.log($("#f1").attr("color","id","size"));
+        }
+
+        function func2() {
+            $("#f1").attr("color", "green");
+            $("#f1").attr("size", "5");
+        }
+
+        function func3() {
+            $("#f1").removeAttr("color")
+        }
+
+        function func4() {
+            $("#f1").attr("class", "a")
+        }
+    </script>
+</head>
+<body>
+<font id='f1' color="red" size="7">牛气冲天</font>
+
+<hr/>
+<input type="button" value="获得属性" onclick="func1()"/>
+<input type="button" value="修改属性" onclick="func2()"/>
+<input type="button" value="删除属性" onclick="func3()"/>
+<input type="button" value="添加属性" onclick="func4()"/>
+</body>
+</html>
