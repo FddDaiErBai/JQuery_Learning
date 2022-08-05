@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function checkEmail() {
+            let em = $("#email").val();
+            let index = em.indexOf("@");
+            let index2 = em.index(".");
+            if (index < 1 || index2 < 1) {
+                $("#emailTip").html('<span style="color: red">邮箱格式有问题</span>');
+                return false;
+            }
+            $("#emailTip").html('<span style="color: green">ok</span>');
+            return true;
+        }
+
+        function checkRePwd() {
+            let p1 = $("#pwd").val();
+            let p2 = $("#rePwd").val();
+            if (p1.length <= 5 || p1 !== p2) {
+                $("#rePwdTip").html('<span style="color: red">两次密码不一致</span>');
+                return false;
+            }
+
+            $("#rePwdTip").html('<span style="color: green">ok</span>');
+            return true;
+
+        }
+
+        function checkForm() {
+            return checkUsername() && checkPassword() && checkRePwd() && checkEmail();
+        }
+
+        function checkPassword() {
+            let pwd = $("#pwd").val();
+            if (pwd.length <= 5) {
+                $("#pwdTip").html('<span style="color: red">长度必须大于5位</span>');
+                return false;
+            }
+            $("#pwdTip").html('<span style="color: green">ok</span>');
+            return true;
+        }
+
+        function checkUsername() {
+            let username = $("#user").val();
+            if (username === "") {
+                $("#userTip").html('<span style="color: red">不能为空</span>');
+                return false;
+            }
+
+            if (username.length <= 6) {
+                $("#userTip").html('<span style="color: red">长度必须大于6位</span>');
+                return false;
+            }
+            for (let i = 0; i < username.length; i++) {
+                let c = username.charAt(i);
+                if (c >= "0" && c <= "9") {
+                    $("#userTip").html('<span style="color: red">不能使用数字</span>');
+                    return false;
+                }
+
+            }
+            $("#userTip").html("<span style='color: green'>ok</span>");
+            return true;
+        }
+
+
+    </script>
+</head>
+<body>
+<form action="https://www.baidu.com" method="get" onsubmit="return checkForm()">
+    <table id="center">
+        <tr>
+            <td>您的姓名：</td>
+            <td>
+                <label for="user"></label><input id="user" type="text" name="username" onblur="checkUsername()"/>
+                <div id="userTip" style="display: inline;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>输入密码：</td>
+            <td>
+                <label for="pwd"></label><input id="pwd" name="pwd" type="password" onblur="checkPassword()"/>
+                <div id="pwdTip" style="display: inline;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>再输入一遍密码：</td>
+            <td>
+                <label for="rePwd"></label><input id="rePwd" type="password" onblur="checkRePwd()"/>
+                <div id="rePwdTip" style="display: inline;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>您的Email：</td>
+            <td>
+                <label for="email"></label><input id="email" type="text" onblur="checkEmail()"/>
+                <span id="emailTip"></span>
+            </td>
+        </tr>
+        <tr>
+
+            <td colspan="2">
+                <input type="submit" value="注册" class="rb1"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
