@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            // $.animate({动画内容},执行时间,function(){动画结束后执行的方法})
+            $("#d1").animate({
+                width: "100px",
+                height: "100px",
+                opacity: "0.5",
+                borderRadius: "50px"
+            }, 2000, function () {
+                alert("动画中执行结束")
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>
